@@ -67,7 +67,18 @@ public class GameManager : MonoBehaviour
 
     private void MainMenuScene()
     {
+        var mainMenuPlayGameButton = GameObject.Find("Button_MainMenu_PlayGame").GetComponent<Button>();
+        var mainMenuPlayerSelectionButton = GameObject.Find("Button_MainMenu_PlayerSelection").GetComponent<Button>();
+        var mainMenuInstructionsButton = GameObject.Find("Button_MainMenu_Instructions").GetComponent<Button>();
+        var mainMenuCreditsButton = GameObject.Find("Button_MainMenu_Credits").GetComponent<Button>();
+        var mainMenuExitButton = GameObject.Find("Button_MainMenu_Exit").GetComponent<Button>();
 
+        // Wait to see what button the user selects and load that buttons scene or exit if exit is pressed
+        mainMenuPlayGameButton.onClick.AddListener(delegate { LoadSceneByNum(3); });
+        mainMenuPlayerSelectionButton.onClick.AddListener(delegate { LoadSceneByNum(2); });
+        mainMenuInstructionsButton.onClick.AddListener(delegate { LoadSceneByNum(1); });
+        mainMenuCreditsButton.onClick.AddListener(delegate { LoadSceneByNum(4); });
+        mainMenuExitButton.onClick.AddListener(delegate { OnExitGame(); });
     }
 
     private void PlayerSelectionScene()
@@ -96,5 +107,16 @@ public class GameManager : MonoBehaviour
         // Wait for the user to press the back button and load the main menu scene when they do
         var playBackButton = GameObject.Find("Button_PlayGame_Back").GetComponent<Button>();
         playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
+    }
+
+
+    // If the user clicks the Exit button, exit the game, whether the user is using the unity editor or hes playing the .exe version
+    private void OnExitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
