@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // Makes Play Game button on the main menu scene interactable/non-interactable based on if user made character selections
+    private bool isInteractable = false;
+
     // Initially call the main menu scene function
     void Start()
     {
@@ -79,6 +82,9 @@ public class GameManager : MonoBehaviour
         mainMenuInstructionsButton.onClick.AddListener(delegate { LoadSceneByNum(1); });
         mainMenuCreditsButton.onClick.AddListener(delegate { LoadSceneByNum(4); });
         mainMenuExitButton.onClick.AddListener(delegate { OnExitGame(); });
+
+        // If the user has saved his choices in the Player Selection scene, they can use the Play Game button
+        mainMenuPlayGameButton.interactable = isInteractable;
     }
 
     private void PlayerSelectionScene()
@@ -86,6 +92,10 @@ public class GameManager : MonoBehaviour
         // Wait for the user to press the back button and load the main menu scene when they do
         var selectionBackButton = GameObject.Find("Button_PlayerSelection_Back").GetComponent<Button>();
         selectionBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
+
+        // Wait for the user to press the Save Selections button when they are done selecting their choices
+        var saveGame = GameObject.Find("Button_PlayerSelection_SaveSelections").GetComponent<Button>();
+        saveGame.onClick.AddListener(delegate { OnSaveGame(); });
     }
 
     private void InstructionsScene()
@@ -109,6 +119,13 @@ public class GameManager : MonoBehaviour
         playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
     }
 
+
+
+    private void OnSaveGame()
+    {
+        // When the player's selections are saved, set this value to true so the user can press the play game button on main menu
+        isInteractable = true;
+    }
 
     // If the user clicks the Exit button, exit the game, whether the user is using the unity editor or hes playing the .exe version
     private void OnExitGame()
