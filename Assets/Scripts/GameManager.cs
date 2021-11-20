@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    protected PlayerData playerData;
+
     // Makes Play Game button on the main menu scene interactable/non-interactable based on if user made character selections
     private bool isInteractable = false;
 
@@ -13,6 +15,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         MainMenuScene();
+
+        // Keeps track of player selections and high score
+        playerData = new PlayerData();
     }
 
     // Implements the singleton pattern
