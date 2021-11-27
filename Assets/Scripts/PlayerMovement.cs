@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float yRotation = 0.0f;
     private Rigidbody playerBody;
     private Vector3 jumpVec;
-    private float jumpSpeed = 2.5f;
+    private float jumpSpeed = 1.0f;
     private bool onGround;
     
 
