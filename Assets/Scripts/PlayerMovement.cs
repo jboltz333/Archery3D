@@ -12,12 +12,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 jumpVec;
     private float jumpSpeed = 1.0f;
     private bool onGround;
-    
+    private Transform bow;
+    private float forwardDist = 0.6f;
+    private float rightDist = 0.5f;
 
     private void Start()
     {
         playerBody = GetComponent<Rigidbody>();
         jumpVec = new Vector3(0.0f, 2.5f, 0.0f);
+        bow = GameObject.Find("bow1").GetComponent<Transform>();
     }
 
     void Update()
@@ -30,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
         yRotation = Mathf.Clamp(yRotation, -45, 45);
         playerCamera.localEulerAngles = new Vector3(yRotation, 0.0f, 0.0f);
 
+        // This will keep the bow in the same spot in front of the camera with the same angle
+        bow.position = Camera.main.transform.position + Camera.main.transform.forward * forwardDist  + Camera.main.transform.right * rightDist;
+        bow.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation);
+
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
 
@@ -37,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             playerBody.AddForce(jumpVec * jumpSpeed, ForceMode.Impulse);
-            
+
             // Set on ground to false so we can't jump again mid-air
             onGround = false;
         }
