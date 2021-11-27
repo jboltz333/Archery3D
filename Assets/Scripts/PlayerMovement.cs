@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform playerCamera;
     private float movement = 2.0f;
     private float rotationSensitivity = 200.0f;
     private float yRotation = 0.0f;
-    public Transform playerCamera;
+    private Rigidbody playerBody;
+    private Vector3 jumpVec;
+    private float jumpSpeed = 2.5f;
+    private bool onGround;
+    
+
+    private void Start()
+    {
+        playerBody = GetComponent<Rigidbody>();
+        jumpVec = new Vector3(0.0f, 2.5f, 0.0f);
+    }
 
     void Update()
     {
@@ -21,5 +32,20 @@ public class PlayerMovement : MonoBehaviour
 
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
+
+        // If the user presses the space bar and is on the ground, jump
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        {
+            playerBody.AddForce(jumpVec * jumpSpeed, ForceMode.Impulse);
+            
+            // Set on ground to false so we can't jump again mid-air
+            onGround = false;
+        }
+    }
+
+    // Checks to make sure we are on the ground so we know if we can jump
+    void OnCollisionStay()
+    {
+        onGround = true;
     }
 }
