@@ -157,6 +157,10 @@ public class GameManager : MonoBehaviour
         // Wait for the user to press the back button and load the main menu scene when they do
         var playBackButton = GameObject.Find("Button_PlayGame_Back").GetComponent<Button>();
         playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
+
+        // Change the bow color based on the user's choice
+        var bow = GameObject.Find("bow1").GetComponent<Renderer>();
+        bow.material.color = playerData.bowColor;
     }
 
 
