@@ -17,12 +17,16 @@ public class PlayerMovement : MonoBehaviour
     private float forwardDist = 0.6f;
     private float rightDist = 0.5f;
     private GameObject gameOverScreen;
+    private CountdownTimer countdownTimer;
 
     private void Start()
     {
         // Initially set our game over screen to inactive
         gameOverScreen = GameObject.Find("Panel_PlayGame_GameOver");
         gameOverScreen.SetActive(false);
+
+        // Get a reference to the time left object so we can initiate a game over if we hit 0 seconds
+        countdownTimer = GameObject.Find("CountdownTimer").GetComponent(typeof(CountdownTimer)) as CountdownTimer;
 
         playerBody = GetComponent<Rigidbody>();
         jumpVec = new Vector3(0.0f, 2.5f, 0.0f);
@@ -53,6 +57,17 @@ public class PlayerMovement : MonoBehaviour
 
             // Set on ground to false so we can't jump again mid-air
             onGround = false;
+        }
+
+        // If the timer hits 0, game over
+        if (countdownTimer.countdownTime == 0)
+        {
+            gameOverScreen.SetActive(true);
+            var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
+            gameOverText.text = "You ran out of time";
+
+            // Destroy this object so user can't move after game over screen appears
+            Destroy(this);
         }
     }
 

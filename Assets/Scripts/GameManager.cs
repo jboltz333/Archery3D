@@ -154,6 +154,21 @@ public class GameManager : MonoBehaviour
 
     private void PlayGameScene()
     {
+        // Set our timer difficulty variable in the Timer class based on the users chosen difficulty (60s, 120s, 180s)
+        var timer = GameObject.Find("CountdownTimer").GetComponent(typeof(CountdownTimer)) as CountdownTimer;
+        if (playerData.difficulty == 0)
+        {
+            timer.countdownTime = 180;
+        }
+        else if (playerData.difficulty == 1)
+        {
+            timer.countdownTime = 120;
+        }
+        else
+        {
+            timer.countdownTime = 10;
+        }
+        
         // Wait for the user to press the back button and load the main menu scene when they do
         var playBackButton = GameObject.Find("Button_PlayGame_Back").GetComponent<Button>();
         playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
