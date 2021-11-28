@@ -159,11 +159,13 @@ public class GameManager : MonoBehaviour
         playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
 
         // Change the bow color based on the user's choice
-        var bow = GameObject.Find("bow1").GetComponent<Renderer>();
+        var bow = GameObject.Find("Bow").GetComponent<Renderer>();
         bow.material.color = playerData.bowColor;
+
+        // If the user encounters a game over and they click retry, reload the game
+        var retry = GameObject.Find("Button_PlayGame_GameOver_Retry").GetComponent<Button>();
+        retry.onClick.AddListener(delegate { LoadSceneByNum(3); });
     }
-
-
 
     private void OnEndEditName()
     {
@@ -197,7 +199,6 @@ public class GameManager : MonoBehaviour
         bowSprite.color = colors[colorInt];
         playerData.bowColor = colors[colorInt];
     }
-
 
     private void OnSaveGame()
     {

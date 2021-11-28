@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,12 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private Transform bow;
     private float forwardDist = 0.6f;
     private float rightDist = 0.5f;
+    private GameObject gameOverScreen;
 
     private void Start()
     {
+        // Initially set our game over screen to inactive
+        gameOverScreen = GameObject.Find("Panel_PlayGame_GameOver");
+        gameOverScreen.SetActive(false);
+
         playerBody = GetComponent<Rigidbody>();
         jumpVec = new Vector3(0.0f, 2.5f, 0.0f);
-        bow = GameObject.Find("bow1").GetComponent<Transform>();
+        bow = GameObject.Find("Bow").GetComponent<Transform>();
     }
 
     void Update()
@@ -50,9 +56,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Checks to make sure we are on the ground so we know if we can jump
-    void OnCollisionStay()
+    private void OnCollisionEnter(Collision collision)
     {
-        onGround = true;
+        // If we jumped over the edge into the water, activate game over screen with info on why its a game over
+        if (collision.gameObject.tag == "Water")
+        {
+            gameOverScreen.SetActive(true);
+            var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
+            gameOverText.text = "You jumped in the water";
+
+            // Destroy this object so user can't move after game over screen appears
+            Destroy(this);
+        }
+        else
+        {
+            // Checks to make sure we are on the ground so we know if we can jump
+            onGround = true;
+        }
     }
 }
