@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         countdownTimer = GameObject.Find("CountdownTimer").GetComponent(typeof(CountdownTimer)) as CountdownTimer;
 
         playerBody = GetComponent<Rigidbody>();
-        jumpVec = new Vector3(0.0f, 2.5f, 0.0f);
+        jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
         bow = GameObject.Find("Bow").GetComponent<Transform>();
     }
 
