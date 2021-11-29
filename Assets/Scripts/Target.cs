@@ -17,8 +17,13 @@ public class Target : MonoBehaviour
         if (collision.gameObject.tag == "Arrow")
         {
             // Play a hit sound
-            // decrease number of targets left showed to user
-            // destroy
+            //
+
+            // Decrease the number of targets we have left to the user
+            var playerScore = GameObject.Find("PlayerScore").GetComponent(typeof(PlayerScore)) as PlayerScore;
+            playerScore.DecreaseTargetCount();
+
+            Destroy(this);
         }
     }
 }
