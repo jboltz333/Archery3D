@@ -10,11 +10,13 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
+        // Get our text box that shows to the user how much time they have left
         countdownText = GameObject.Find("Text_PlayGame_TimeLeft").GetComponent<Text>();
     }
 
     void Update()
     {
+        // while the countdown hasn't hit 0, decrease the time and display time left to user
         if (countdownTime > 0)
         {
             countdownTime -= Time.deltaTime;
@@ -22,6 +24,7 @@ public class CountdownTimer : MonoBehaviour
         }
         else
         {
+            // once time has hit 0, show the user he ran out of time
             countdownTime = 0;
             countdownText.text = "Time Left: 0.0";
         }
