@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             onGround = false;
         }
 
-        // If the timer hits 0, game over
+/*        // If the timer hits 0, game over
         if (countdownTimer.countdownTime == 0)
         {
             gameOverScreen.SetActive(true);
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Destroy this object so user can't move after game over screen appears
             Destroy(this);
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
