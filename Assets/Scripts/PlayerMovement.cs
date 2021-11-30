@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpSpeed = 1.0f;
     private bool onGround;
     private Transform bow;
+    private Transform arrow;
     private float forwardDist = 0.6f;
     private float rightDist = 0.5f;
     private GameObject gameOverScreen;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
         jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
         bow = GameObject.Find("Bow").GetComponent<Transform>();
+        arrow = GameObject.Find("Arrow").GetComponent<Transform>();
     }
 
     void Update()
@@ -43,9 +45,11 @@ public class PlayerMovement : MonoBehaviour
         yRotation = Mathf.Clamp(yRotation, -45, 45);
         playerCamera.localEulerAngles = new Vector3(yRotation, 0.0f, 0.0f);
 
-        // This will keep the bow in the same spot in front of the camera with the same angle
+        // This will keep the bow/arrow in the same spot in front of the camera with the same angle
         bow.position = Camera.main.transform.position + Camera.main.transform.forward * forwardDist  + Camera.main.transform.right * rightDist;
         bow.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation);
+        arrow.position = Camera.main.transform.position + Camera.main.transform.forward * (forwardDist-0.1f) + Camera.main.transform.right * (rightDist-0.1f);
+        arrow.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation-90);
 
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
@@ -59,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             onGround = false;
         }
 
-/*        // If the timer hits 0, game over
+        /*// If the timer hits 0, game over
         if (countdownTimer.countdownTime == 0)
         {
             gameOverScreen.SetActive(true);
