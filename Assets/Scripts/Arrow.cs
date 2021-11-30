@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Target")
         {

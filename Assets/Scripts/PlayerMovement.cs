@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform playerCamera;
     private float movement = 2.0f;
-    private float rotationSensitivity = 200.0f;
+    private float rotationSensitivity = 100.0f;
     private float yRotation = 0.0f;
     private Rigidbody playerBody;
     private Vector3 jumpVec;
     private float jumpSpeed = 1.0f;
     private bool onGround;
     private Transform bow;
-    private Transform arrow;
+    private Transform arrowTransform;
     private float forwardDist = 0.6f;
     private float rightDist = 0.5f;
     private GameObject gameOverScreen;
     private CountdownTimer countdownTimer;
+    public Camera playerCamera;
+    public GameObject arrowObj;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
         jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
         bow = GameObject.Find("Bow").GetComponent<Transform>();
-        arrow = GameObject.Find("Arrow").GetComponent<Transform>();
+        arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
     }
 
     void Update()
@@ -43,13 +44,13 @@ public class PlayerMovement : MonoBehaviour
         // This will allow us to move the mouse up and down to adjust where we are looking at in the y-axis
         yRotation += Input.GetAxis("Mouse Y") * rotationSensitivity * Time.deltaTime * -1.0f;
         yRotation = Mathf.Clamp(yRotation, -45, 45);
-        playerCamera.localEulerAngles = new Vector3(yRotation, 0.0f, 0.0f);
+        playerCamera.GetComponent<Transform>().localEulerAngles = new Vector3(yRotation, 0.0f, 0.0f);
 
         // This will keep the bow/arrow in the same spot in front of the camera with the same angle
         bow.position = Camera.main.transform.position + Camera.main.transform.forward * forwardDist  + Camera.main.transform.right * rightDist;
         bow.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation);
-        arrow.position = Camera.main.transform.position + Camera.main.transform.forward * (forwardDist-0.1f) + Camera.main.transform.right * (rightDist-0.1f);
-        arrow.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation-90);
+        arrowTransform.position = Camera.main.transform.position + Camera.main.transform.forward * (forwardDist-0.1f) + Camera.main.transform.right * (rightDist-0.1f);
+        arrowTransform.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation-90);
 
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
@@ -61,6 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
             // Set on ground to false so we can't jump again mid-air
             onGround = false;
+        }
+
+        // If user presses left mouse button, fire arrow
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
         }
 
         /*// If the timer hits 0, game over
@@ -92,5 +99,35 @@ public class PlayerMovement : MonoBehaviour
             // Checks to make sure we are on the ground so we know if we can jump
             onGround = true;
         }
+    }
+
+    private void Fire()
+    {
+        // Shoot a ray out of your camera
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+        Vector3 rayHit;
+
+        // If it hit something, get that position, if not set rayhit to a large number
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            rayHit = hit.point;
+        }
+        else
+        {
+            rayHit = ray.GetPoint(75);
+        }
+
+        // Get the direction our arrow will shoot towards
+        Vector3 arrowShotDirection = rayHit - bow.position;
+
+        // Instantiate an arrow at your bow and normalize the vector
+        GameObject arrow = Instantiate(arrowObj, bow.position, Quaternion.identity);
+        arrow.transform.forward = arrowShotDirection.normalized;
+
+        // Rotate our arrow from vertical to the screen to horizontal
+        arrow.transform.eulerAngles = new Vector3(arrow.transform.eulerAngles.x + 90, arrow.transform.eulerAngles.y, arrow.transform.eulerAngles.z);
+
+        // Shoot the arrow
+        arrow.GetComponent<Rigidbody>().AddForce(arrowShotDirection.normalized * 20, ForceMode.Impulse);
     }
 }
