@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private Image bowSprite;
     private Slider chosenDifficulty;
     private Text chosenDifficultyText;
+    private TMP_Text saveConfirmation;
 
     // You can choose easy, medium or hard difficulty
     private string[] difficultyLevels = { "Easy", "Medium", "Hard" };
@@ -115,7 +117,9 @@ public class GameManager : MonoBehaviour
 
         // Wait for the user to press the Save Selections button when they are done selecting their choices
         var saveGame = GameObject.Find("Button_PlayerSelection_SaveSelections").GetComponent<Button>();
+        saveConfirmation = GameObject.Find("Text_PlayerSelection_SaveConfirmation").GetComponent<TMP_Text>();
         saveGame.onClick.AddListener(delegate { OnSaveGame(); });
+        saveGame.onClick.AddListener(delegate { SetSaveText(); });
 
         // Update our player name selection when the user types in a name and remember it between scenes
         inputCharName = GameObject.Find("InputField_PlayerSelection_Name").GetComponent<InputField>();
@@ -219,6 +223,11 @@ public class GameManager : MonoBehaviour
     {
         // When the player's selections are saved, set this value to true so the user can press the play game button on main menu
         isInteractable = true;
+    }
+
+    private void SetSaveText()
+    {
+        saveConfirmation.text = playerData.characterName + ", your selections have been saved, click the back button and start playing!";
     }
 
     // If the user clicks the Exit button, exit the game, whether the user is using the unity editor or hes playing the .exe version
