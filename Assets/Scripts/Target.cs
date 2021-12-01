@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    public GameObject hitEffect;
+
     void Start()
     {
         // Spawn the target in a random place on our map, with the target at a random angle
@@ -16,6 +18,7 @@ public class Target : MonoBehaviour
         // Check whether the target was hit by an arrow
         if (collision.gameObject.tag == "Arrow")
         {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             // Play a hit sound
             //
 
