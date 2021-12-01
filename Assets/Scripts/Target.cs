@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
             var playerScore = GameObject.Find("PlayerScore").GetComponent(typeof(PlayerScore)) as PlayerScore;
             playerScore.DecreaseTargetCount();
 
-            Destroy(this);
+            //Destroy(this);
         }
     }
 }
