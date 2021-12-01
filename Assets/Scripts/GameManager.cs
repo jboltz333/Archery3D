@@ -8,6 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     protected PlayerData playerData;
+    protected PlayerScore playerScore;
 
     // Makes Play Game button on the main menu scene interactable/non-interactable based on if user made character selections
     private bool isInteractable = false;
@@ -35,6 +36,19 @@ public class GameManager : MonoBehaviour
 
         // Keeps track of player selections and high score
         playerData = new PlayerData();
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("PlayGameScene"))
+        {
+            playerScore = GameObject.FindGameObjectWithTag("Score").GetComponent<PlayerScore>();
+
+            if (playerScore.GetTargetCount() == 0)
+            {
+                LoadSceneByNum(4);
+            }
+        }
     }
 
     // Implements the singleton pattern
