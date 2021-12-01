@@ -3,7 +3,9 @@ guid: 01e01ce63db73124b8996e9daf27188f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerCamera: {instanceID: 0}
+  - arrowObj: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
