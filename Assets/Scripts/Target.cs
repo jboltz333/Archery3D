@@ -19,6 +19,7 @@ public class Target : MonoBehaviour
         if (collision.gameObject.tag == "Arrow")
         {
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+
             // Play a hit sound
             //
 
@@ -26,7 +27,7 @@ public class Target : MonoBehaviour
             var playerScore = GameObject.Find("PlayerScore").GetComponent(typeof(PlayerScore)) as PlayerScore;
             playerScore.DecreaseTargetCount();
 
-            Destroy(this);
+            //Destroy(this);
         }
     }
 }
