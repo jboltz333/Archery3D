@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private CountdownTimer countdownTimer;
     public Camera playerCamera;
     public GameObject arrowObj;
-    public AudioSource audio;
+    public AudioSource movementAudio;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         bow = GameObject.Find("Bow").GetComponent<Transform>();
         arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
 
-        audio = GetComponent<AudioSource>();
+        movementAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,14 +60,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Vertical") != 0)
         {
-            if (!audio.isPlaying)
+            if (!movementAudio.isPlaying)
             {
-                audio.Play();
+                movementAudio.Play();
             }
         }
         else
         {
-            audio.Stop();
+            movementAudio.Stop();
         }
 
         // If the user presses the space bar and is on the ground, jump
@@ -92,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You ran out of time";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and stop the movement audio
+            movementAudio.Stop();
             Destroy(this);
+            
         }*/
     }
 
@@ -106,7 +108,8 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You jumped in the water";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and make sure movement audio stops
+            movementAudio.Stop();
             Destroy(this);
         }
         else
@@ -129,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rayHit = ray.GetPoint(75);
+            rayHit = ray.GetPoint(100);
         }
 
         // Get the direction our arrow will shoot towards
