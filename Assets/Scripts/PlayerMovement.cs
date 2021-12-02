@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private CountdownTimer countdownTimer;
     public Camera playerCamera;
     public GameObject arrowObj;
+    public AudioSource movementAudio;
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
         bow = GameObject.Find("Bow").GetComponent<Transform>();
         arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
+
+        movementAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,6 +57,18 @@ public class PlayerMovement : MonoBehaviour
 
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
+
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            if (!movementAudio.isPlaying)
+            {
+                movementAudio.Play();
+            }
+        }
+        else
+        {
+            movementAudio.Stop();
+        }
 
         // If the user presses the space bar and is on the ground, jump
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
@@ -77,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You ran out of time";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and stop the movement audio
+            movementAudio.Stop();
             Destroy(this);
+            
         }*/
     }
 
@@ -91,7 +108,8 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You jumped in the water";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and make sure movement audio stops
+            movementAudio.Stop();
             Destroy(this);
         }
         else
@@ -114,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rayHit = ray.GetPoint(75);
+            rayHit = ray.GetPoint(100);
         }
 
         // Get the direction our arrow will shoot towards
