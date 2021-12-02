@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private CountdownTimer countdownTimer;
     public Camera playerCamera;
     public GameObject arrowObj;
-    public AudioSource audio;
+    public AudioSource movementAudio;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         bow = GameObject.Find("Bow").GetComponent<Transform>();
         arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
 
-        audio = GetComponent<AudioSource>();
+        movementAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,14 +60,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Vertical") != 0)
         {
-            if (!audio.isPlaying)
+            if (!movementAudio.isPlaying)
             {
-                audio.Play();
+                movementAudio.Play();
             }
         }
         else
         {
-            audio.Stop();
+            movementAudio.Stop();
         }
 
         // If the user presses the space bar and is on the ground, jump
