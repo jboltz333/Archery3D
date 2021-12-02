@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private CountdownTimer countdownTimer;
     public Camera playerCamera;
     public GameObject arrowObj;
+    public AudioSource audio;
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
         bow = GameObject.Find("Bow").GetComponent<Transform>();
         arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
+
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,6 +57,18 @@ public class PlayerMovement : MonoBehaviour
 
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
+
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+        }
+        else
+        {
+            audio.Stop();
+        }
 
         // If the user presses the space bar and is on the ground, jump
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
