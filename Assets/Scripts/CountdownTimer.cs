@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class CountdownTimer : MonoBehaviour
 {
     public float countdownTime;
+    public float countdownTimeCopy;
     private Text countdownText;
 
     void Start()
     {
         // Get our text box that shows to the user how much time they have left
         countdownText = GameObject.Find("Text_PlayGame_TimeLeft").GetComponent<Text>();
+        countdownTimeCopy = countdownTime;
     }
 
     void Update()

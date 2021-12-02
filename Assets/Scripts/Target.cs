@@ -5,7 +5,6 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public GameObject hitEffect;
-
     public AudioSource targetAudio;
 
     void Start()
@@ -14,6 +13,7 @@ public class Target : MonoBehaviour
         transform.position = new Vector3(Random.Range(-21.5f, 22.5f), Random.Range(1.5f, 3.5f), Random.Range(-17.5f, 21.5f));
         transform.rotation = Quaternion.Euler(90.0f, Random.Range(0.0f, 360.0f), 0.0f);
 
+        // Used whenever a target is hit
         targetAudio = GetComponent<AudioSource>();
     }
 
@@ -30,7 +30,8 @@ public class Target : MonoBehaviour
             var playerScore = GameObject.Find("PlayerScore").GetComponent(typeof(PlayerScore)) as PlayerScore;
             playerScore.DecreaseTargetCount();
 
-            //Destroy(this);
+            // Destroy the target 0.5s after being hit by arrow (enough time for target hit audioclip to play)
+            Destroy(this.gameObject, 0.5f);
         }
     }
 }

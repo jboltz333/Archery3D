@@ -8,5 +8,5 @@ public class PlayerData
     public string characterName = "";
     public int difficulty = 0;
     public Color bowColor = Color.cyan;
-    public int highScore = 0;
+    public float bestTime = 0;
 }

@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         bow = GameObject.Find("Bow").GetComponent<Transform>();
         arrowTransform = GameObject.Find("Arrow").GetComponent<Transform>();
 
+        // Played whenever moving in game
         movementAudio = GetComponent<AudioSource>();
     }
 
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         // This will move our player forward/backwards
         transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
 
+        // Play our movement audio whenver moving, and stop it whenever we stop moving
         if (Input.GetAxis("Vertical") != 0)
         {
             if (!movementAudio.isPlaying)
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             Fire();
         }
 
-        /*// If the timer hits 0, game over
+        // If the timer hits 0, game over
         if (countdownTimer.countdownTime == 0)
         {
             gameOverScreen.SetActive(true);
@@ -93,10 +95,8 @@ public class PlayerMovement : MonoBehaviour
             gameOverText.text = "You ran out of time";
 
             // Destroy this object so user can't move after game over screen appears and stop the movement audio
-            movementAudio.Stop();
-            Destroy(this);
-            
-        }*/
+            DestroyPlayer();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -108,9 +108,8 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You jumped in the water";
 
-            // Destroy this object so user can't move after game over screen appears and make sure movement audio stops
-            movementAudio.Stop();
-            Destroy(this);
+            // Destroy this object so user can't move after game over screen appears and make sure movement audio stops\
+            DestroyPlayer();
         }
         else
         {
@@ -147,5 +146,14 @@ public class PlayerMovement : MonoBehaviour
 
         // Shoot the arrow
         arrow.GetComponent<Rigidbody>().AddForce(arrowShotDirection.normalized * 20, ForceMode.Impulse);
+    }
+
+    // Destroy the player movement/countdown timer scripts when the user wins or game over happens and stop any movement audio
+    public void DestroyPlayer()
+    {
+        var countdownTimer = GameObject.Find("CountdownTimer").GetComponent(typeof(CountdownTimer)) as CountdownTimer;
+        movementAudio.Stop();
+        Destroy(countdownTimer);
+        Destroy(this);
     }
 }
