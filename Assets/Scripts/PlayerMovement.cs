@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rayHit = ray.GetPoint(75);
+            rayHit = ray.GetPoint(100);
         }
 
         // Get the direction our arrow will shoot towards
