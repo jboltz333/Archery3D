@@ -7,6 +7,7 @@ TagManager:
   - Water
   - Arrow
   - Target
+  - Score
   layers:
   - Default
   - TransparentFX
