@@ -92,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You ran out of time";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and stop the movement audio
+            movementAudio.Stop();
             Destroy(this);
+            
         }*/
     }
 
@@ -106,7 +108,8 @@ public class PlayerMovement : MonoBehaviour
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
             gameOverText.text = "You jumped in the water";
 
-            // Destroy this object so user can't move after game over screen appears
+            // Destroy this object so user can't move after game over screen appears and make sure movement audio stops
+            movementAudio.Stop();
             Destroy(this);
         }
         else
