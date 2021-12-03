@@ -788,13 +788,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is where we will put our game instructions...
-
-    etc.
-
-    etc.
-
-'
+  m_text: "To play this game, go to the Player Selection screen by clicking the Play
+    Selection button on Main Menu screen and enter:\r\n - your name\r\n - bow color\r\n
+    - difficulty level\r\n\r\nThen click save selection and then the back button.
+    Then click Play Game.\r\n\r\nTo move around, use the w,a,s,d keys and to move
+    the direction your facing up/down use the mouse. To shoot arrows use the left
+    mouse button.\r\nYou can also jump using the space bar.\r\n\r\nShoot all 10 targets
+    before the timer runs out and you win.\r\n\r\nThe difficulty level decides whether
+    you will have 3 minutes, 2 minutes, or 1 minute to shoot all the targets. \r\n
+    - Easy = 3 minutes\r\n - Medium = 2 minutes\r\n - Hard = 1 minute\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -821,8 +823,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

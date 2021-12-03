@@ -8,7 +8,6 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     protected PlayerData playerData;
-    protected PlayerScore playerScore;
 
     // Makes Play Game button on the main menu scene interactable/non-interactable based on if user made character selections
     private bool isInteractable = false;
@@ -36,19 +35,6 @@ public class GameManager : MonoBehaviour
 
         // Keeps track of player selections and high score
         playerData = new PlayerData();
-    }
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("PlayGameScene"))
-        {
-            playerScore = GameObject.FindGameObjectWithTag("Score").GetComponent<PlayerScore>();
-
-            if (playerScore.GetTargetCount() == 0)
-            {
-                LoadSceneByNum(4);
-            }
-        }
     }
 
     // Implements the singleton pattern
@@ -186,18 +172,26 @@ public class GameManager : MonoBehaviour
         {
             timer.countdownTime = 10;
         }
-        
-        // Wait for the user to press the back button and load the main menu scene when they do
+
+        // Keep track of high scores so we can display the high scores even if they leave the scene and come back
+        var playerScore = GameObject.Find("PlayerScore").GetComponent(typeof(PlayerScore)) as PlayerScore;
+        playerScore.SetBestTime(playerData.bestTime);
+
+        // Wait for the user to press the back button, if so set their high score in the player data object, then load main menu
         var playBackButton = GameObject.Find("Button_PlayGame_Back").GetComponent<Button>();
-        playBackButton.onClick.AddListener(delegate { LoadSceneByNum(0); });
+        playBackButton.onClick.AddListener(delegate { playerData.bestTime = playerScore.GetBestTime(); LoadSceneByNum(0); });
 
         // Change the bow color based on the user's choice
         var bow = GameObject.Find("Bow").GetComponent<Renderer>();
         bow.material.color = playerData.bowColor;
 
-        // If the user encounters a game over and they click retry, reload the game
+        // Check whether the user has pressed the retry button, if so set their high score in the player data object, then reload the game
         var retry = GameObject.Find("Button_PlayGame_GameOver_Retry").GetComponent<Button>();
-        retry.onClick.AddListener(delegate { LoadSceneByNum(3); });
+        retry.onClick.AddListener(delegate { playerData.bestTime = playerScore.GetBestTime(); LoadSceneByNum(3); });
+
+        // Check whether the user has pressed the retry button on winning screen, if so set their high score in the player data object, then reload the game
+        var retryWinner = GameObject.Find("Button_PlayGame_WinningScreen_Retry").GetComponent<Button>();
+        retryWinner.onClick.AddListener(delegate { playerData.bestTime = playerScore.GetBestTime(); LoadSceneByNum(3); });
     }
 
     private void OnEndEditName()

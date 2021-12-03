@@ -15,7 +15,7 @@ public class TargetSpawner : MonoBehaviour
     // Spawn 20 targets around the map
     private void SpawnTargets()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             // Spawn a target object
             GameObject targetObject = Instantiate(target);
