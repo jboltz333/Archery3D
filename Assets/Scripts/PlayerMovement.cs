@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // If the timer hits 0, game over
-        if (countdownTimer.countdownTime == 0)
+/*        if (countdownTimer.countdownTime == 0)
         {
             gameOverScreen.SetActive(true);
             var gameOverText = GameObject.Find("Text_PlayGame_GameOver_Info").GetComponent<Text>();
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Destroy this object so user can't move after game over screen appears and stop the movement audio
             DestroyPlayer();
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
