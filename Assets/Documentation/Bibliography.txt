@@ -9,7 +9,7 @@ Arts:
 - TemporaryBackground2.png	Josh Boltz
 - SplashScreen.png			Josh Boltz
 - crosshairs.png            	Visdye Interactives*
-- Skybox.png                    Samara Brown
+- Skyline.png                    Samara Brown
 Models:
 - Bow.dae                	Josh Boltz
 - Target.fbx                	Josh Boltz
@@ -53,16 +53,18 @@ Scripts:
 - CountdownTimer.cs            	Josh Boltz
 - PlayerScore.cs            	Josh Boltz
 - Arrow.cs                	Josh Boltz & Samara Brown
+- AudioManager.cs				Samara Brown
 - TargetSpawner.cs            	Josh Boltz
 - Target.cs                	Josh Boltz & Janay Hernandez & Jose Tiznado
 Sounds:
 - OriginalBirdsSound.mp3        Janay Hernandez⁺
 - OriginalStepsSound.mp3        Janay Hernandez⁺
 - OriginalTargetHitSound.mp3	Janay Hernandez⁺
-- arrowShot.mp3            	Samara Brown
+- arrowShot.mp3            		Samara Brown**
 Sprites:
 - Bow2D.png                	Josh Boltz
-- Arrow2D.png                	Samara Brown
+- Arrow2D.png                Samara Brown
 
 * Link to Visdye Interactive: https://assetstore.unity.com/publishers/25148
 ⁺ Recorded audio using built-in voice recorder in Android phone, Edited audio using AudioMass audio editor (link: https://audiomass.co/)
+** Button click sounds from: https://www.fesliyanstudios.com/royalty-free-sound-effects-download/video-game-menu-153
