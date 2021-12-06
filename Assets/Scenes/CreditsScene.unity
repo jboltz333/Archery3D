@@ -934,23 +934,23 @@ MonoBehaviour:
   m_text: "Animations:\r\n- GameOverTextChanging.anim    \tJanay Hernandez\r\n- WinnerTextChanging.anim
     \t\tJanay Hernandez\r\n- TargetMoving.anim            \t\tJosh Boltz\r\n- TargetRoundabout.anim       
     \t\tJosh Boltz\r\n\nArts:\r\n- Back_Button.png            \t\tJose Tiznado\r\n-
-    PlaneBackground.png\t\t\tJosh Boltz\r\n- TemporaryBackground2.png\t\tJosh Boltz\r\n-
-    crosshairs.png            \t\t\tVisdye Interactives*\r\n- Skybox.png\t\t\t\tSamara
-    Brown\r\n\nModels:\r\n- Bow.dae                \t\t\tJosh Boltz\r\n- Target.fbx               
-    \t\t\tJosh Boltz\r\n- Arrow.fbx                \t\t\tJosh Boltz\r\n- block.dae               
-    \t\t\thttps://kenney.nl/\r\n- bridge.dae                \t\t\thttps://kenney.nl/\r\n-
-    chest.dae                \t\t\thttps://kenney.nl/\r\n- crate.dae               
-    \t\t\thttps://kenney.nl/\r\n- crateStrong.dae            \t\t\thttps://kenney.nl/\r\n-
-    fence.dae                \t\t\thttps://kenney.nl/\r\n- fenceBroken.dae           
-    \t\thttps://kenney.nl/\r\n- fenceCorner.dae\t\t\t\thttps://kenney.nl/\r\n- flag.dae               
-    \t\t\thttps://kenney.nl/\r\n- flowers.dae                \t\t\thttps://kenney.nl/\r\n-
-    flowersLow.dae            \t\t\thttps://kenney.nl/\r\n- hedge.dae               
-    \t\t\thttps://kenney.nl/\r\n- ladder.dae                \t\t\thttps://kenney.nl/\r\n-
-    mushrooms.dae\t\t\t\thttps://kenney.nl/\r\n- plant.dae                \t\t\thttps://kenney.nl/\r\n-
-    platform.dae                \t\t\thttps://kenney.nl/\r\n- rocks.dae               
-    \t\t\thttps://kenney.nl/\r\n- sign.dae                \t\t\thttps://kenney.nl/\r\n-
-    tree.dae                \t\t\thttps://kenney.nl/\r\n- treePine.dae               
-    \t\t\thttps://kenney.nl/"
+    PlaneBackground.png\t\t\tJosh Boltz\r\n- TemporaryBackground2.png\t\tJosh Boltz\n-
+    SplashScreen.png\t\t\tJosh Boltz\r\n- crosshairs.png            \t\t\tVisdye
+    Interactives*\r\n- Skybox.png\t\t\t\tSamara Brown\r\n\nModels:\r\n- Bow.dae               
+    \t\t\tJosh Boltz\r\n- Target.fbx                \t\t\tJosh Boltz\r\n- Arrow.fbx               
+    \t\t\tJosh Boltz\r\n- block.dae                \t\t\thttps://kenney.nl/\r\n-
+    bridge.dae                \t\t\thttps://kenney.nl/\r\n- chest.dae               
+    \t\t\thttps://kenney.nl/\r\n- crate.dae                \t\t\thttps://kenney.nl/\r\n-
+    crateStrong.dae            \t\t\thttps://kenney.nl/\r\n- fence.dae               
+    \t\t\thttps://kenney.nl/\r\n- fenceBroken.dae            \t\thttps://kenney.nl/\r\n-
+    fenceCorner.dae\t\t\t\thttps://kenney.nl/\r\n- flag.dae                \t\t\thttps://kenney.nl/\r\n-
+    flowers.dae                \t\t\thttps://kenney.nl/\r\n- flowersLow.dae           
+    \t\t\thttps://kenney.nl/\r\n- hedge.dae                \t\t\thttps://kenney.nl/\r\n-
+    ladder.dae                \t\t\thttps://kenney.nl/\r\n- mushrooms.dae\t\t\t\thttps://kenney.nl/\r\n-
+    plant.dae                \t\t\thttps://kenney.nl/\r\n- platform.dae               
+    \t\t\thttps://kenney.nl/\r\n- rocks.dae                \t\t\thttps://kenney.nl/\r\n-
+    sign.dae                \t\t\thttps://kenney.nl/\r\n- tree.dae               
+    \t\t\thttps://kenney.nl/\r\n- treePine.dae                \t\t\thttps://kenney.nl/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -7,6 +7,7 @@ Arts:
 - Back_Button.png            	Jose Tiznado
 - PlaneBackground.png		Josh Boltz
 - TemporaryBackground2.png	Josh Boltz
+- SplashScreen.png			Josh Boltz
 - crosshairs.png            	Visdye Interactives*
 - Skybox.png                    Samara Brown
 Models:
