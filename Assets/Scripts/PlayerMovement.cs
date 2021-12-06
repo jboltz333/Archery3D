@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float movement = 2.0f;
+    private float movementSpeed = 0;
+    private float walkingSpeed = 2.0f;
+    private float runningSpeed = 5.0f;
     private float rotationSensitivity = 100.0f;
     private float yRotation = 0.0f;
     private Rigidbody playerBody;
@@ -57,7 +59,16 @@ public class PlayerMovement : MonoBehaviour
         arrowTransform.localEulerAngles = new Vector3(0.0f, -90.0f, -yRotation-90);
 
         // This will move our player forward/backwards
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * movement * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movementSpeed = runningSpeed;
+        }
+        else
+        {
+            movementSpeed = walkingSpeed;
+        }
+
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime);
 
         // Play our movement audio whenver moving, and stop it whenever we stop moving
         if (Input.GetAxis("Vertical") != 0)
