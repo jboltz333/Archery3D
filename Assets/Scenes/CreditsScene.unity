@@ -706,15 +706,16 @@ MonoBehaviour:
     Boltz & Janay Hernandez\r\n- GameManager.cs            \tJosh Boltz & Jose Tiznado\r\n-
     PlayerData.cs                \tJosh Boltz\r\n- CountdownTimer.cs            \tJosh
     Boltz\r\n- PlayerScore.cs            \t\tJosh Boltz\r\n- Arrow.cs               
-    \t\tJosh Boltz & Samara Brown\r\n- TargetSpawner.cs            \tJosh Boltz\r\n-
-    Target.cs                \t\tJosh Boltz & Janay Hernandez & Jose Tiznado\r\n\nSounds:\r\n-
-    OriginalBirdsSound.mp3        \tJanay Hernandez**\n- OriginalStepsSound.mp3       
-    Janay Hernandez**\r\n- OriginalTargetHitSound.mp3\tJanay Hernandez**\n- arrowShot.mp3           
-    \t\tSamara Brown\r\n\nSprites:\r\n- Bow2D.png                \t\tJosh Boltz\r\n-
-    Arrow2D.png                \t\tSamara Brown\r\n\r\n\n* Link to Visdye Interactive:
-    https://assetstore.unity.com/publishers/25148\r\n\n** Recorded audio using built-in
-    voice recorder in Android phone, Edited audio using AudioMass audio editor (link:
-    https://audiomass.co/)"
+    \t\tJosh Boltz\n-AudioManager.cs\t\t\tSamara Brown\n- TargetSpawner.cs           
+    \tJosh Boltz\r\n- Target.cs                \t\tJosh Boltz & Janay Hernandez &
+    Jose Tiznado\r\n\nSounds:\r\n- OriginalBirdsSound.mp3        \tJanay Hernandez**\n-
+    OriginalStepsSound.mp3        Janay Hernandez**\r\n- OriginalTargetHitSound.mp3\tJanay
+    Hernandez**\n- ButtonClick.mp3            \tSamara Brown***\n\nSprites:\r\n-
+    Bow2D.png                \t\tJosh Boltz\r\n- Arrow2D.png                \t\tSamara
+    Brown\r\n\r\n\n* Link to Visdye Interactive: https://assetstore.unity.com/publishers/25148\r\n\n**
+    Recorded audio using built-in voice recorder in Android phone, Edited audio using
+    AudioMass audio editor (link: https://audiomass.co/)\n\n*** Sound effect used
+    for button clicks from fesliyan studios, edited in the Unity Editor: https://www.fesliyanstudios.com/royalty-free-sound-effects-download/video-game-menu-153"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -15.3697815, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -936,7 +937,7 @@ MonoBehaviour:
     \t\tJosh Boltz\r\n\nArts:\r\n- Back_Button.png            \t\tJose Tiznado\r\n-
     PlaneBackground.png\t\t\tJosh Boltz\r\n- TemporaryBackground2.png\t\tJosh Boltz\n-
     SplashScreen.png\t\t\tJosh Boltz\r\n- crosshairs.png            \t\t\tVisdye
-    Interactives*\r\n- Skybox.png\t\t\t\tSamara Brown\r\n\nModels:\r\n- Bow.dae               
+    Interactives*\r\n- Skyline.png\t\t\t\tSamara Brown\r\n\nModels:\r\n- Bow.dae               
     \t\t\tJosh Boltz\r\n- Target.fbx                \t\t\tJosh Boltz\r\n- Arrow.fbx               
     \t\t\tJosh Boltz\r\n- block.dae                \t\t\thttps://kenney.nl/\r\n-
     bridge.dae                \t\t\thttps://kenney.nl/\r\n- chest.dae               
