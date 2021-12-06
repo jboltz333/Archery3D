@@ -464,8 +464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: -200, y: -70}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -200, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419545357
 MonoBehaviour:
@@ -673,8 +673,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -30}
-  m_SizeDelta: {x: 220, y: 300}
+  m_AnchoredPosition: {x: 0, y: -30}
+  m_SizeDelta: {x: 300, y: 320}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1222483238
 MonoBehaviour:
@@ -696,10 +696,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game Artwork:\n\t- Janay Hernandez\n\t- Samara Brown\n\t- Jose Tiznado\n\t-
-    Josh Boltz\n\t- Kenney.nl\n\t- Visdye Interactives\n\nGame Animations:\n\t- Janay
-    Hernandez\n\t- Samara Brown\n\t- Jose Tiznado\n\t- Josh Boltz\n\nGame Inspirations:\n\t-
-    Archery Master 3D"
+  m_text: "Prefabs:\r\n- aim.prefab                \t\tSamara Brown\r\n- explosion.prefab           
+    \tJose Tiznado\r\n- Target.prefab                \t\tJosh Boltz & Janay Hernandez
+    & Jose Tiznado\r\n- Bow.prefab                \t\tJosh Boltz\r\n- Arrow.prefab               
+    \t\tJosh Boltz\r\n\nScenes:\r\n- CreditsScene                \t\tAll four of
+    us\r\n- InstructionsScene            \tAll four of us\r\n- MainMenuScene           
+    \tAll four of us\r\n- PlayerSelectionScene         \tAll four of us\r\n- PlayGameScene\t\t\tAll
+    four of us\r\n\nScripts:\r\n- PlayerMovement.cs            \tJose Tiznado & Josh
+    Boltz & Janay Hernandez\r\n- GameManager.cs            \tJosh Boltz & Jose Tiznado\r\n-
+    PlayerData.cs                \tJosh Boltz\r\n- CountdownTimer.cs            \tJosh
+    Boltz\r\n- PlayerScore.cs            \t\tJosh Boltz\r\n- Arrow.cs               
+    \t\tJosh Boltz & Samara Brown\r\n- TargetSpawner.cs            \tJosh Boltz\r\n-
+    Target.cs                \t\tJosh Boltz & Janay Hernandez & Jose Tiznado\r\n\nSounds:\r\n-
+    OriginalBirdsSound.mp3        \tJanay Hernandez**\n- OriginalStepsSound.mp3       
+    Janay Hernandez**\r\n- OriginalTargetHitSound.mp3\tJanay Hernandez**\n- arrowShot.mp3           
+    \t\tSamara Brown\r\n\nSprites:\r\n- Bow2D.png                \t\tJosh Boltz\r\n-
+    Arrow2D.png                \t\tSamara Brown\r\n\r\n\n* Link to Visdye Interactive:
+    https://assetstore.unity.com/publishers/25148\r\n\n** Recorded audio using built-in
+    voice recorder in Android phone, Edited audio using AudioMass audio editor (link:
+    https://audiomass.co/)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -726,8 +741,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -893,8 +908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -30}
-  m_SizeDelta: {x: 220, y: 300}
+  m_AnchoredPosition: {x: 10, y: -30}
+  m_SizeDelta: {x: 290, y: 320}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1884066706
 MonoBehaviour:
@@ -916,9 +931,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game Design and Creation:\n\t- Janay Hernandez\n\t- Samara Brown\n\t-
-    Jose Tiznado\n\t- Josh Boltz\n\nGame Code:\n\t- Janay Hernandez\n\t- Samara Brown\n\t-
-    Jose Tiznado\n\t- Josh Boltz\n\n"
+  m_text: "Animations:\r\n- GameOverTextChanging.anim    \tJanay Hernandez\r\n- WinnerTextChanging.anim
+    \t\tJanay Hernandez\r\n- TargetMoving.anim            \t\tJosh Boltz\r\n- TargetRoundabout.anim       
+    \t\tJosh Boltz\r\n\nArts:\r\n- Back_Button.png            \t\tJose Tiznado\r\n-
+    PlaneBackground.png\t\t\tJosh Boltz\r\n- TemporaryBackground2.png\t\tJosh Boltz\r\n-
+    crosshairs.png            \t\t\tVisdye Interactives*\r\n- Skybox.png\t\t\t\tSamara
+    Brown\r\n\nModels:\r\n- Bow.dae                \t\t\tJosh Boltz\r\n- Target.fbx               
+    \t\t\tJosh Boltz\r\n- Arrow.fbx                \t\t\tJosh Boltz\r\n- block.dae               
+    \t\t\thttps://kenney.nl/\r\n- bridge.dae                \t\t\thttps://kenney.nl/\r\n-
+    chest.dae                \t\t\thttps://kenney.nl/\r\n- crate.dae               
+    \t\t\thttps://kenney.nl/\r\n- crateStrong.dae            \t\t\thttps://kenney.nl/\r\n-
+    fence.dae                \t\t\thttps://kenney.nl/\r\n- fenceBroken.dae           
+    \t\thttps://kenney.nl/\r\n- fenceCorner.dae\t\t\t\thttps://kenney.nl/\r\n- flag.dae               
+    \t\t\thttps://kenney.nl/\r\n- flowers.dae                \t\t\thttps://kenney.nl/\r\n-
+    flowersLow.dae            \t\t\thttps://kenney.nl/\r\n- hedge.dae               
+    \t\t\thttps://kenney.nl/\r\n- ladder.dae                \t\t\thttps://kenney.nl/\r\n-
+    mushrooms.dae\t\t\t\thttps://kenney.nl/\r\n- plant.dae                \t\t\thttps://kenney.nl/\r\n-
+    platform.dae                \t\t\thttps://kenney.nl/\r\n- rocks.dae               
+    \t\t\thttps://kenney.nl/\r\n- sign.dae                \t\t\thttps://kenney.nl/\r\n-
+    tree.dae                \t\t\thttps://kenney.nl/\r\n- treePine.dae               
+    \t\t\thttps://kenney.nl/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -945,8 +977,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
