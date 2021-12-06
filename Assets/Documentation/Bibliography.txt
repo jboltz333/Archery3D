@@ -62,3 +62,6 @@ Sounds:
 Sprites:
 - Bow2D.png                	Josh Boltz
 - Arrow2D.png                	Samara Brown
+
+* Link to Visdye Interactive: https://assetstore.unity.com/publishers/25148
+⁺ Recorded audio using built-in voice recorder in Android phone, Edited audio using AudioMass audio editor (link: https://audiomass.co/)
