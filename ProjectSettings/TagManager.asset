@@ -8,6 +8,7 @@ TagManager:
   - Arrow
   - Target
   - Score
+  - GameMusic
   layers:
   - Default
   - TransparentFX
