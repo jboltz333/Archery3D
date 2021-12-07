@@ -60,7 +60,7 @@ Sounds:
 - OriginalBirdsSound.mp3        Janay Hernandez⁺
 - OriginalStepsSound.mp3        Janay Hernandez⁺
 - OriginalTargetHitSound.mp3	Janay Hernandez⁺
-- arrowShot.mp3            		Samara Brown**
+- ButtonClick.mp3            		Samara Brown**
 Sprites:
 - Bow2D.png                	Josh Boltz
 - Arrow2D.png                Samara Brown
